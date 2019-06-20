@@ -10,7 +10,7 @@ const initialState = {
 	error: null,
 };
 
-export const getAllFriendsReducer = (state = initialState, action) => {
+export const friendsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case types.FETCHING:
 			return {
@@ -28,6 +28,31 @@ export const getAllFriendsReducer = (state = initialState, action) => {
 				...state,
 				fetchingFriends: false,
 				error: action.payload,
+			};
+		case types.LOGGING_IN:
+			return {
+				...state,
+				fetchingFriends: true,
+			};
+		case types.ADD_FRIEND:
+			return {
+				...state,
+				fetchingFriends: true,
+			};
+		case types.UPDATE_FRIEND:
+			return {
+				...state,
+				fetchingFriends: true,
+			};
+		case types.DELETE_FRIEND:
+			return {
+				...state,
+				fetchingFriends: true,
+			};
+		case types.SAVE_FRIENDS:
+			return {
+				...state,
+				fetchingFriends: true,
 			};
 		default:
 			return state;

@@ -32,7 +32,8 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		friends: state.getAllFriendsReducer.friends,
+		friends: state.friendsReducer.friends,
+		error: state.friendsReducer.error,
 	};
 }
 

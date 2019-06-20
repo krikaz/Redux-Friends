@@ -1,10 +1,14 @@
 import axios from 'axios';
 import axiosImproved from '../axios';
 
-// export const LOGIN = 'LOGIN';
+export const LOGGING_IN = 'LOGGING_IN';
 export const FETCHING = 'FETCHING';
 export const FETCHING_SUCCESS = 'FETCHING_SUCCESS';
 export const FETCHING_FAILURE = 'FETCHING_FAILURE';
+export const ADD_FRIEND = 'ADD_FRIEND';
+export const UPDATE_FRIEND = 'UPDATE_FRIEND';
+export const DELETE_FRIEND = 'DELETE_FRIEND';
+export const SAVE_FRIENDS = 'SAVE_FRIENDS';
 
 export const fetchFriends = () => {
 	return function(dispatch) {
@@ -28,10 +32,11 @@ export const login = (username, password) => dispatch => {
 	axios
 		.post('http://localhost:5000/api/login', credentials)
 		.then(res => {
-			console.log('success');
+			// console.log('success');
 			dispatch(localStorage.setItem('token', res.data.payload));
 		})
-		.catch(res => {
-			console.log('failed');
+		.catch(error => {
+			// console.log('failed');
+			// dispatch()
 		});
 };
