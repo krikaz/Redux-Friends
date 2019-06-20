@@ -14,7 +14,7 @@ class App extends React.Component {
 					exact
 					path="/"
 					render={props => {
-						if (true) {
+						if (localStorage.getItem('token')) {
 							return (
 								<div>
 									{friends.map(friend => (
