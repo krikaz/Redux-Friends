@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actionsCreators from './actions';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
-// import Friends from './components/Friends';
+import Friends from './components/Friends';
 import Login from './components/Login';
 
 class App extends React.Component {
 	render() {
-		const friends = this.props.friends;
 		return (
 			<BrowserRouter>
 				<Route
@@ -16,14 +15,10 @@ class App extends React.Component {
 					render={() => {
 						if (localStorage.getItem('token')) {
 							return (
-								<div>
-									{friends.map(friend => (
-										<div key={friend.id}>{friend.name}</div>
-									))}
-									<button onClick={this.props.fetchFriends}>
-										Fetch Friends
-									</button>
-								</div>
+								<Friends
+									friends={this.props.friends}
+									fetchFriends={this.props.fetchFriends}
+								/>
 							);
 						}
 						return <Redirect to="login" />;
