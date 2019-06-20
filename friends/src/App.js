@@ -13,7 +13,7 @@ class App extends React.Component {
 				<Route
 					exact
 					path="/"
-					render={props => {
+					render={() => {
 						if (localStorage.getItem('token')) {
 							return (
 								<div>

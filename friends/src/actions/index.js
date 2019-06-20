@@ -30,5 +30,4 @@ export const login = (username, password) => dispatch => {
 		.catch(res => {
 			console.log('failed');
 		})
-		.finally();
 };
