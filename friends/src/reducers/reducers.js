@@ -27,6 +27,7 @@ export const friendsReducer = (state = initialState, action) => {
 			return {
 				...state,
 				loggingIn: false,
+				error: action.payload,
 			};
 		case types.FETCHING:
 			return {
@@ -53,12 +54,14 @@ export const friendsReducer = (state = initialState, action) => {
 		case types.ADDING_FRIEND_SUCCESS:
 			return {
 				...state,
+				friends: action.payload,
 				addingFriend: false,
 			};
 		case types.ADDING_FRIEND_FAILURE:
 			return {
 				...state,
 				addingFriend: false,
+				error: action.payload,
 			};
 		case types.UPDATING_FRIEND:
 			return {
@@ -68,12 +71,14 @@ export const friendsReducer = (state = initialState, action) => {
 		case types.UPDATING_FRIEND_SUCCESS:
 			return {
 				...state,
+				friends: action.payload,
 				updatingFriend: false,
 			};
 		case types.UPDATING_FRIEND_FAILURE:
 			return {
 				...state,
 				updatingFriend: false,
+				error: action.payload,
 			};
 		case types.DELETING_FRIEND:
 			return {
@@ -83,12 +88,14 @@ export const friendsReducer = (state = initialState, action) => {
 		case types.DELETING_FRIEND_SUCCESS:
 			return {
 				...state,
+				friends: action.payload,
 				deletingFriend: false,
 			};
 		case types.DELETING_FRIEND_FAILURE:
 			return {
 				...state,
 				deletingFriend: false,
+				error: action.payload,
 			};
 		case types.SAVING_FRIENDS:
 			return {
@@ -98,12 +105,14 @@ export const friendsReducer = (state = initialState, action) => {
 		case types.SAVING_FRIENDS_SUCCESS:
 			return {
 				...state,
+				friends: action.payload,
 				savingFriends: false,
 			};
 		case types.SAVING_FRIENDS_FAILURE:
 			return {
 				...state,
 				savingFriends: false,
+				error: action.payload,
 			};
 		default:
 			return state;
