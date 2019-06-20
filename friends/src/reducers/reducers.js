@@ -1,5 +1,4 @@
-import * as types from '../actions/actionTypes';
-
+import * as types from '../actions';
 
 const initialState = {
 	friends: [],
@@ -7,7 +6,7 @@ const initialState = {
 
 export const getAllFriendsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case types.GET_ALL_FRIENDS:
+		case types.FETCH_FRIENDS:
 			return { ...state, friends: action.payload };
 		default:
 			return state;
