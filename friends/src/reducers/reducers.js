@@ -1,7 +1,13 @@
 import * as types from '../actions';
 
 const initialState = {
+	deletingFriend: false,
+	fetchingFriends: false,
 	friends: [],
+	loggingIn: false,
+	savingFriends: false,
+	updatingFriend: false,
+	error: null,
 };
 
 export const getAllFriendsReducer = (state = initialState, action) => {

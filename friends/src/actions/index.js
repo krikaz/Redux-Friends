@@ -12,8 +12,9 @@ export const fetchFriends = () => {
 				dispatch({ type: FETCH_FRIENDS, payload: res.data });
 			})
 			.catch(error => {
-				console.log('failed to fetch friends');
-				console.log(error.message);
+				// console.log('failed to fetch friends');
+				// console.log(error.message);
+				
 			});
 	};
 };
