@@ -1,17 +1,33 @@
 import * as types from '../actions';
 
 const initialState = {
-	deletingFriend: false,
+	loggingIn: false,
 	fetchingFriends: false,
 	friends: [],
-	loggingIn: false,
-	savingFriends: false,
+	addingFriend: false,
 	updatingFriend: false,
+	deletingFriend: false,
+	savingFriends: false,
 	error: null,
 };
 
 export const friendsReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case types.LOGGING_IN:
+			return {
+				...state,
+				loggingIn: true,
+			};
+		case types.LOGGING_IN_SUCCESS:
+			return {
+				...state,
+				loggingIn: false,
+			};
+		case types.LOGGING_IN_FAILURE:
+			return {
+				...state,
+				loggingIn: false,
+			};
 		case types.FETCHING:
 			return {
 				...state,
@@ -29,30 +45,65 @@ export const friendsReducer = (state = initialState, action) => {
 				fetchingFriends: false,
 				error: action.payload,
 			};
-		case types.LOGGING_IN:
+		case types.ADDING_FRIEND:
 			return {
 				...state,
-				fetchingFriends: true,
+				addingFriend: true,
 			};
-		case types.ADD_FRIEND:
+		case types.ADDING_FRIEND_SUCCESS:
 			return {
 				...state,
-				fetchingFriends: true,
+				addingFriend: false,
 			};
-		case types.UPDATE_FRIEND:
+		case types.ADDING_FRIEND_FAILURE:
 			return {
 				...state,
-				fetchingFriends: true,
+				addingFriend: false,
 			};
-		case types.DELETE_FRIEND:
+		case types.UPDATING_FRIEND:
 			return {
 				...state,
-				fetchingFriends: true,
+				updatingFriend: true,
 			};
-		case types.SAVE_FRIENDS:
+		case types.UPDATING_FRIEND_SUCCESS:
 			return {
 				...state,
-				fetchingFriends: true,
+				updatingFriend: false,
+			};
+		case types.UPDATING_FRIEND_FAILURE:
+			return {
+				...state,
+				updatingFriend: false,
+			};
+		case types.DELETING_FRIEND:
+			return {
+				...state,
+				deletingFriend: true,
+			};
+		case types.DELETING_FRIEND_SUCCESS:
+			return {
+				...state,
+				deletingFriend: false,
+			};
+		case types.DELETING_FRIEND_FAILURE:
+			return {
+				...state,
+				deletingFriend: false,
+			};
+		case types.SAVING_FRIENDS:
+			return {
+				...state,
+				savingFriends: true,
+			};
+		case types.SAVING_FRIENDS_SUCCESS:
+			return {
+				...state,
+				savingFriends: false,
+			};
+		case types.SAVING_FRIENDS_FAILURE:
+			return {
+				...state,
+				savingFriends: false,
 			};
 		default:
 			return state;
