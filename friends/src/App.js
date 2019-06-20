@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actionsCreators from './actions';
 
-export default class App extends React.Component {
+class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<button />
+				<button onClick={this.props.fetchFriends}>Fetch Friends</button>
 			</div>
 		);
 	}
@@ -18,7 +18,7 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect (
-  mapStateToProps,
-  actionsCreators
+export default connect(
+	mapStateToProps,
+	actionsCreators
 )(App);
