@@ -13,3 +13,17 @@ export const fetchFriends = () => {
 			.catch(error => console.log(error.message));
 	};
 };
+
+export const login = (username, password) => dispatch => {
+	const credentials = { username, password };
+
+	axios
+		.post('http://localhost:5000/api/login', credentials)
+		.then(res => {
+			console.log('success');
+			dispatch(localStorage.setItem('token', res.data.payload));
+		})
+		.catch(res => {
+			console.log('failed');
+		});
+};
